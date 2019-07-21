@@ -1,0 +1,26 @@
+{
+  "name": "coconut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "devDependencies": {
+    "electron": "^5.0.5"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.1",
+    "electron-progressbar": "^1.2.0",
+    "google-protobuf": "^3.9.0",
+    "grpc": "^1.22.2"
+  }
+}

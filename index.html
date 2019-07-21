@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Coconut</title>
+  </head>
+  <body>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+
+    <button id="upgradeLocalPackages">Upgrade local packages</button>
+    <button id="addProcesspackage">Add processpackage</button>
+    <button id="deployrelease">Deploy a release</button>
+    <script>
+        (function () {
+            const { ipcRenderer } = require("electron");
+
+            document.getElementById("upgradeLocalPackages").addEventListener("click", () => {
+                ipcRenderer.send("selectPackages", 'test');
+                window.alert("I proof that the call is async :)")
+            });
+
+            ipcRenderer.on('selectionFinished', (event, args) => {
+                        console.log(args)
+                        console.log(typeof(args))
+                        var result = args.join(',')
+                        console.log(result)
+                        window.alert(result)
+                    });
+            
+        }());
+    </script>
+  </body>
+</html>
